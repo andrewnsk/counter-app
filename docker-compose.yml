@@ -1,7 +1,10 @@
 version: "3.5"
 services:
   web-fe:
+
     build: .
+    env_file:
+      - .env
     command: python app.py
     ports:
       - target: 5000

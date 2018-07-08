@@ -4,6 +4,9 @@ import redis
 from flask import Flask
 
 redis_hostname = os.environ.get('redis_hostname', 'redis')
+test_env = os.environ.get('test_env', 'none')
+
+
 app = Flask(__name__)
 cache = redis.Redis(host=redis_hostname, port=6379)
 
@@ -36,6 +39,11 @@ def get_error_hit_count():
 def hello():
     count = get_hit_count()
     return "Big Ass hole counter: {} queries\n redis_hostname\n".format(count)
+
+
+@app.route('env')
+def env():
+    return 'Env is: {0}'.format(test_env)
 
 
 @app.errorhandler(404)
