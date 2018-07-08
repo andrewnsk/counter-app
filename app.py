@@ -23,7 +23,7 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return "Big Ass hole counter: {} queries\n".format(count)
+    return "Big Ass hole counter: {} queries\n redis_hostname\n".format(count)
 
 
 if __name__ == "__main__":
