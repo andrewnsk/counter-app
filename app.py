@@ -41,7 +41,7 @@ def hello():
     return "Big Ass hole counter: {} queries\n redis_hostname\n".format(count)
 
 
-@app.route('env')
+@app.route('/env')
 def env():
     return 'Env is: {0}'.format(test_env)
 
