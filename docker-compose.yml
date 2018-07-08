@@ -5,6 +5,7 @@ services:
     build: .
     env_file:
       - .env
+    restart: always
     command: python app.py
     ports:
       - target: 5000
@@ -12,16 +13,15 @@ services:
     networks:
       - counter-net
     volumes:
-      - type: volume
-        source: counter-vol
-        target: /code
+      - .:/code
   redis:
     image: "redis:alpine"
+    restart: always
     networks:
       counter-net:
 
 networks:
   counter-net:
 
-volumes:
-  counter-vol:
+
+
